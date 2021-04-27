@@ -1,0 +1,37 @@
+{
+  "name": "weather-buddy",
+  "version": "1.0.0",
+  "description": "An app that gets the weather information of a user based on their location",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack serve --open",
+    "build": "webpack --config webpack.prod.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tolu-Mals/weather-buddy.git"
+  },
+  "keywords": [
+    "weather",
+    "app"
+  ],
+  "author": "Malomo Tolulope Abioye",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tolu-Mals/weather-buddy/issues"
+  },
+  "homepage": "https://github.com/Tolu-Mals/weather-buddy#readme",
+  "dependencies": {
+    "webpack": "^5.35.1",
+    "webpack-cli": "^4.6.0"
+  },
+  "devDependencies": {
+    "css-loader": "^5.2.4",
+    "html-webpack-plugin": "^5.3.1",
+    "sass": "^1.32.11",
+    "sass-loader": "^11.0.1",
+    "style-loader": "^2.0.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}

@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'production',
-  entry: './src/app.js',
+  entry: './src/index.js',
   devtool: 'inline-source-map',
   plugins: [
     new HtmlWebpackPlugin({
@@ -17,6 +17,10 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.(html)$/,
+        use: ['html-loader']
+     },
       {
         test: /\.s[ac]ss$/i,
         use: [

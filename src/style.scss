@@ -6,11 +6,14 @@
 //Import Nunito Google Font
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,700;0,800;1,300&display=swap");
 
+* {
+  font-family: "Nunito", sans-serif;
+}
+
 
 body {
   background-color: blueviolet;
   color: #fff;
-  font-family: "Nunito", sans-serif;
 }
 
 a {
@@ -36,11 +39,33 @@ a {
 #hero {
   height: 100vh;
   background: url('./img/bg.jpg') no-repeat center center/cover;
+
+  .content {
+    margin: 0 auto;
+    margin-top: 5rem;
+    width: 50%;
+    text-align: center;
+
+    .h3 {
+      font-weight: 800;
+      line-height: 83.12px;
+      margin-bottom: 2rem;
+    }
+
+    .p2 {
+      font-weight: 200;
+      color: #949CFF;
+      margin-bottom: 6rem;
+    }
+  }
+  
+
+
 }
 
 #nav-bar {
   display: flex;
-  height: 10vh;
+  height: 15vh;
   align-items: center;
   justify-content: space-between;
 
@@ -49,7 +74,7 @@ a {
   }
 
   nav {
-   width: 20%;
+   width: 18%;
    display: flex;
    justify-content: space-between;
   }
@@ -62,6 +87,16 @@ a {
 
   nav a svg {
     margin-right: 8px;
+  }
+}
+
+
+.btn-group-row {
+  display: flex;
+  justify-content: center;
+
+  a:first-child{
+    margin-right: 1rem;
   }
 }
 

@@ -1,1 +1,40 @@
 //Color, Font-size etc variables
+
+
+//Font Sizes
+$h1: 8rem;
+$h2: 7.5rem;
+$h3: 7rem;
+
+$p1: 3rem;
+$p2: 2.7rem;
+
+.h1 {
+    font-size: $h1;
+}
+
+.h2 {
+    font-size: $h2;
+}
+
+.h3 {
+    font-size: $h3;
+}
+
+
+.p1 {
+    font-size: $p1;
+}
+
+.p2 {
+    font-size: $p2;
+}
+
+
+.p5 {
+
+}
+
+nav > a {
+    font-size: 1.5rem;
+}

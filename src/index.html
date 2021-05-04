@@ -6,35 +6,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Buddy App</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,700;0,800;1,300&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,700;0,800;1,300&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Font awesome icons 
-    
-     -->
+        <header id="hero">
+            
+            <div class="container">
 
-    <!-- <p>&deg;</p> -->
+                <div id="nav-bar">
+                    <div class="brand">
+                        <a href="./index.html" id="logo">
+                            <img src="./img/logo.svg" alt="Brand Logo">
+                            <span id="logo-text">weather-buddy</span>
+                        </a>
+                    </div>
     
-    <div class="container">
-        <header id="site-header">
-            <div class="nav-bar">
-                <div class="brand"><img src="./img/brand.png" alt="logo" id="logo"></div>
-
-                <nav class="nav">
-                    <ul class="nav-links">
-                        <li class="nav-link"><a href="#"><i class="fab fa-github"></i></a></li>
-                        <li class="nav-link"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                    </ul>
-                </nav>
+                    <nav>
+                        <a href="#" class="link"><span class="iconify" data-icon="akar-icons:github-fill" data-inline="false"></span> Github</a>
+                        <a href="#" class="link"><span class="iconify" data-icon="akar-icons:twitter-fill" data-inline="false"></span> Twitter</a>
+                    </nav>
+                </div>
+    
+                <div class="content">
+                    <h1 class="h1">Hey, what's the weather like?</h1>
+                    <p class="p1">Get information about the weather in the area where you live</p>
+                </div>
+    
+                <div class="btn-group-row">
+                    <button class="btn btn-primary">Get weather info</button>
+                    <button class="btn btn-secondary">See code</button>
+                </div>
             </div>
+
         </header>
 
-        <h1>You're still doing well Brother</h1>
-        
+        <section class="section-a">
+            <div id="location"><span id="user-location"><span class="iconify" data-icon="ic:baseline-location-on" data-inline="false"></span>Akure, Nigeria</span></div>
+            <div id="date"><p>As at Monday, 26th April. 8:08AM</p></div>
+            <span id="temp">25&deg;C</span>
+            <div class="weather-info">
+                <span id="app-temp">Feels like 30C</span>
+                <div class="line-v"></div>
+                <span id="weather-descbr"> <span id="weather-icon"></span> Mostly Cloudy</span>
+            </div>
 
-    </div>
+            <hr>
 
+            <div class="weather-details">
+                <div class="weather-detail">
+                    <p id="detail-title">Pressure</p>
+                    <p id="detail-value pressure">11</p>
+                </div>
 
-    <script src="https://kit.fontawesome.com/b9c1efb6b3.js" crossorigin="anonymous"></script>
+                <div class="weather-detail">
+                    <p id="detail-title">Wind Speed</p>
+                    <p id="detail-value wind-speed">11</p>
+                </div>
+
+                <div class="weather-detail">
+                    <p id="detail-title">Wind Direction</p>
+                    <p id="detail-value wind-dir">11</p>
+                </div>
+
+                <div class="weather-detail">
+                    <p id="detail-title">Relative Humidity</p>
+                    <p id="detail-value rel-hum">11</p>
+                </div>
+
+                <div class="weather-detail">
+                    <p id="detail-title">Dew Point</p>
+                    <p id="detail-value dew-point">11</p>
+                </div>
+
+                <div class="weather-detail">
+                    <p id="detail-title">UV Index</p>
+                    <p id="detail-value uv-index">11</p>
+                </div>
+            </div>
+        </section>
+
+        <section-b>
+            <div class="map">
+                Map goes here...
+            </div>
+        </section-b>
+
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     <script src="./bundle.js"></script>
 </html>

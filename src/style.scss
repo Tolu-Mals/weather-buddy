@@ -3,15 +3,67 @@
 @use './my-sass/utilities';
 @use './my-sass/btn';
 
-
 //Import Nunito Google Font
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,700;0,800;1,300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,700;0,800;1,300&display=swap");
 
-
-$body: #333;
 
 body {
-    background: $body;
-    color: #fff;
-    font-family: 'Nunito', sans-serif;
+  background-color: blueviolet;
+  color: #fff;
+  font-family: "Nunito", sans-serif;
 }
+
+a {
+  color: #fff;
+}
+
+
+#logo {
+  display: flex;
+  width: 215px;
+  justify-content: space-between;
+
+  img {
+    width: 32px;
+  }
+
+  #logo-text {
+    font-size: 24px;
+    font-weight: 800;
+  }
+}
+
+#hero {
+  height: 100vh;
+  background: url('./img/bg.jpg') no-repeat center center/cover;
+}
+
+#nav-bar {
+  display: flex;
+  height: 10vh;
+  align-items: center;
+  justify-content: space-between;
+
+  .brand {
+    width: 40%;
+  }
+
+  nav {
+   width: 20%;
+   display: flex;
+   justify-content: space-between;
+  }
+
+  nav a {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+  }
+
+  nav a svg {
+    margin-right: 8px;
+  }
+}
+
+
+

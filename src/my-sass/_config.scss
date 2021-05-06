@@ -8,6 +8,10 @@ $h3: 7rem;
 
 $p1: 3rem;
 $p2: 2.7rem;
+$p5: 2rem;
+$p6: 1.8rem;
+
+
 
 .h1 {
     font-size: $h1;
@@ -30,9 +34,12 @@ $p2: 2.7rem;
     font-size: $p2;
 }
 
-
 .p5 {
+    font-size: $p5;
+}
 
+.p6 {
+    font-size: $p6;
 }
 
 nav > a {

@@ -2,6 +2,13 @@
 @use './my-sass/config';
 @use './my-sass/utilities';
 @use './my-sass/btn';
+@use './my-sass/mobile';
+
+
+$primary: #2631AD;
+$secondary: #2C3386;
+
+
 
 //Import Nunito Google Font
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,700;0,800;1,300&display=swap");
@@ -12,7 +19,6 @@
 
 
 body {
-  background-color: blueviolet;
   color: #fff;
 }
 
@@ -21,23 +27,12 @@ a {
 }
 
 
-#logo {
-  display: flex;
-  width: 215px;
-  justify-content: space-between;
-
-  img {
-    width: 32px;
-  }
-
-  #logo-text {
-    font-size: 24px;
-    font-weight: 800;
-  }
+.brand {
+  width: 10%;
 }
 
 #hero {
-  height: 100vh;
+  min-height: 100vh;
   background: url('./img/bg.jpg') no-repeat center center/cover;
 
   .content {
@@ -53,8 +48,8 @@ a {
     }
 
     .p2 {
-      font-weight: 200;
-      color: #949CFF;
+      font-weight: 400;
+      color: #b9bdff;
       margin-bottom: 6rem;
     }
   }
@@ -70,13 +65,15 @@ a {
   justify-content: space-between;
 
   .brand {
-    width: 40%;
+    width: 20%;
   }
 
   nav {
+   height: 100%;
    width: 18%;
    display: flex;
    justify-content: space-between;
+   align-items: center;
   }
 
   nav a {
@@ -97,6 +94,86 @@ a {
 
   a:first-child{
     margin-right: 1rem;
+  }
+}
+
+#section-a {
+    background-color: #353DA2;
+
+    .container {
+      padding-top: 8.6rem;
+      padding-bottom: 8.6rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #location,#date,#temp,#weather-info {
+      margin-bottom: 1.6rem;
+    }
+
+    #temp {
+      font-size: 12rem;
+      font-weight: 700;
+    }
+
+    .line-v{
+      width: 1px;
+      height: 40px;
+      background: #fff;
+    }
+
+    .line-h {
+      margin-bottom: 3.2rem;
+
+    }
+
+    .line-h {
+      height: 1px;
+      width: 100%;
+      background-color: #fff;
+    }
+    
+    #location {
+    display: flex;
+    align-items: center;
+    font-size: 3.2rem;
+    font-weight: bold;
+  }
+
+  #weather-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+    margin-bottom: 3.2rem;
+
+  }
+
+
+  .weather-details {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .weather-detail {
+    font-size: 1.8rem;
+  }
+
+
+  .weather-detail .detail-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.6rem;
+  }
+
+  .weather-detail .detail-value {
+    background: #2C3386;
+    color: #fff;
+    padding: 1rem;
   }
 }
 

@@ -16,11 +16,16 @@
                 <div id="nav-bar">
                     <div class="brand">
                         <a href="./index.html" id="logo">
-                            <img src="./img/logo.svg" alt="Brand Logo">
-                            <span id="logo-text">weather-buddy</span>
+                            <img src="./img/brand.png" alt="Brand Logo">
                         </a>
                     </div>
-    
+
+                    <div id="hamburger">
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                    </div>
+
                     <nav>
                         <a href="#" class="link"><span class="iconify" data-icon="akar-icons:github-fill" data-inline="false"></span> Github</a>
                         <a href="#" class="link"><span class="iconify" data-icon="akar-icons:twitter-fill" data-inline="false"></span> Twitter</a>
@@ -41,46 +46,51 @@
         </header>
 
         <section id="section-a">
-            <div id="location"><span id="user-location"><span class="iconify" data-icon="ic:baseline-location-on" data-inline="false"></span>Akure, Nigeria</span></div>
-            <div id="date"><p>As at Monday, 26th April. 8:08AM</p></div>
-            <span id="temp">25&deg;C</span>
-            <div class="weather-info">
-                <span id="app-temp">Feels like 30C</span>
-                <div class="line-v"></div>
-                <span id="weather-descbr"> <span id="weather-icon"></span> Mostly Cloudy</span>
-            </div>
-
-            <hr>
-
-            <div class="weather-details">
-                <div class="weather-detail">
-                    <p id="detail-title">Pressure</p>
-                    <p id="detail-value pressure">11</p>
+            <div class="container">
+                <div id="location">
+                    <span class="iconify" data-icon="ic:baseline-location-on" data-inline="false"></span> 
+                    <span id="user-location">Akure, Nigeria</span>
                 </div>
-
-                <div class="weather-detail">
-                    <p id="detail-title">Wind Speed</p>
-                    <p id="detail-value wind-speed">11</p>
+                <div id="date"><p class="p5">As at Monday, 26th April. 8:08AM</p></div>
+                <span id="temp">25&deg;</span>
+                <div id="weather-info">
+                    <span id="app-temp" class="p6">Feels like 30C</span>
+                    <div class="line-v p6"></div>
+                    <span id="weather-descr" class="p6"> <span id="weather-icon"></span> Mostly Cloudy</span>
                 </div>
-
-                <div class="weather-detail">
-                    <p id="detail-title">Wind Direction</p>
-                    <p id="detail-value wind-dir">11</p>
-                </div>
-
-                <div class="weather-detail">
-                    <p id="detail-title">Relative Humidity</p>
-                    <p id="detail-value rel-hum">11</p>
-                </div>
-
-                <div class="weather-detail">
-                    <p id="detail-title">Dew Point</p>
-                    <p id="detail-value dew-point">11</p>
-                </div>
-
-                <div class="weather-detail">
-                    <p id="detail-title">UV Index</p>
-                    <p id="detail-value uv-index">11</p>
+    
+                <div class="line-h"></div>
+    
+                <div class="weather-details">
+                    <div class="weather-detail">
+                        <p class="detail-title">Pressure</p>
+                        <p class="detail-value" id="pressure">11</p>
+                    </div>
+    
+                    <div class="weather-detail">
+                        <p class="detail-title">Wind Speed</p>
+                        <p class="detail-value" id="wind-speed">11</p>
+                    </div>
+    
+                    <div class="weather-detail">
+                        <p class="detail-title">Wind Direction</p>
+                        <p class="detail-value" id="wind-dir">11</p>
+                    </div>
+    
+                    <div class="weather-detail">
+                        <p class="detail-title">Relative Humidity</p>
+                        <p class="detail-value" id="rel-hum">11</p>
+                    </div>
+    
+                    <div class="weather-detail">
+                        <p class="detail-title">Dew Point</p>
+                        <p class="detail-value" id="dew-point">11</p>
+                    </div>
+    
+                    <div class="weather-detail">
+                        <p class="detail-title">UV Index</p>
+                        <p class="detail-value" id="uv-index">11</p>
+                    </div>
                 </div>
             </div>
         </section>

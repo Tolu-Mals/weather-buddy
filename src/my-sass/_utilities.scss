@@ -14,9 +14,46 @@
     overflow:hidden;
 }
 
-#hamburger .line{
-    height: 2px;
-    width: 30px;
-    background-color: #fff;
-    margin-bottom: 5px;
+
+@media screen and (max-width: 768px){
+
+    #hamburger {
+        cursor: pointer;
+        z-index: 3;
+
+        .line{
+            height: 2px;
+            width: 30px;
+            background-color: #fff;
+            margin-bottom: 5px;
+        }
+    }
+    
+
+    #hamburger.open {
+        transition: all 0.4s ease-in-out;
+        position: fixed;
+        top: 40px;
+        right: 20px;
+
+        .line {
+            transition: all 0.4s ease-out;
+        }
+
+        .line:first-child{
+            transform: translateY(7px) rotateZ(45deg);
+        }
+        .line:nth-child(2){
+            transform: rotateZ(45deg);
+        }
+
+        .line:nth-child(3){
+            transform: translateY(-7px) rotateZ(-45deg);
+
+        }
+    }
+
+    #hamburger.open:hover {
+        transform: rotateZ(90deg);
+    }
 }

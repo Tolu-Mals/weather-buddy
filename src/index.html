@@ -48,49 +48,154 @@
 
         <section id="section-a">
             <div class="container">
-                <div id="location">
-                    <span class="iconify" data-icon="ic:baseline-location-on" data-inline="false"></span> 
-                    <span id="user-location">Akure, Nigeria</span>
-                </div>
-                <div id="date"><p class="p5">As at Monday, 26th April. 8:08AM</p></div>
-                <span id="temp">25&deg;</span>
-                <div id="weather-info">
-                    <span id="app-temp" class="p6">Feels like 30C</span>
-                    <div class="line-v p6"></div>
-                    <span id="weather-descr" class="p6"> <span id="weather-icon"></span> Mostly Cloudy</span>
-                </div>
-    
-                <div class="line-h"></div>
-    
-                <div id="weather-details">
-                    <div class="weather-detail">
-                        <p class="detail-title">Pressure</p>
-                        <p class="detail-value" id="pressure">11</p>
+                <h2 id="section-a-header"><span class="iconify" data-icon="ic:baseline-location-on" data-inline="false"></span> Enter Your Location</h2>
+
+                <form id="location-form">
+                    <input type="text" id="location-field" placeholder="Type the name of your location here">
+                    <br>
+                    <input type="submit" id="location-submit">
+                </form>
+                
+                <div class="results">
+                    <div class="result">
+                        <h2>Lagos, Nigeria</h2>
+                        <div class="top-result">
+                            <p id="temp">22&deg;C</p>
+
+                            <div>
+                                <p id="app-temp"><span class="iconify" data-inline="false" data-icon="fluent:temperature-20-filled" style="color: #ffffff; font-size: 20px;"></span>Feels like 30C</p>
+                                <p id="weather-descr"><span class="iconify" data-inline="false" data-icon="bi:cloud-fill" style="color: #ffffff; font-size: 20px;"></span>Mostly Cloudy</p>
+                            </div>
+                        </div>
+                        <div class="weather-details">
+                            <div class="weather-detail">
+                                <p class="label">Wind speed: 
+                                    <span class="value" id="wind-speed">6.17m/s</span>
+                                </p>
+                            </div>
+                            <div class="weather-detail">
+                                <p class="label">Wind Direction: 
+                                    <span class="value" id="wind-direction">6.17m/s</span>
+                                </p>
+                            </div><div class="weather-detail">
+                                <p class="label">Relative Humidity:
+                                    <span class="value" id="rel-humidity">6.17m/s</span>
+                                </p>
+                            </div><div class="weather-detail">
+                                <p class="label">Visibility:
+                                    <span class="value" id="visibility">6.17m/s</span>
+                                </p>
+                            </div><div class="weather-detail">
+                                <p class="label">UV Index: 
+                                    <span class="value" id="uv-index">6.17m/s</span>
+                                </p>
+                            </div><div class="weather-detail">
+                                <p class="label">Dew point:
+                                    <span class="value" id="dew-point">6.17m/s</span>
+                                </p>
+                            </div><div class="weather-detail">
+                                <p class="label">Precipitation: 
+                                    <span class="value" id="precipitation">6.17m/s</span>
+                                </p>
+                            </div>
+                           
+                        </div>
+
+                        <a href="#" class="map-link"><span class="iconify" data-inline="false" data-icon="entypo:map" style="color: #ffffff; font-size: 20px;"></span> See Map</a>
                     </div>
-    
-                    <div class="weather-detail">
-                        <p class="detail-title">Wind Speed</p>
-                        <p class="detail-value" id="wind-speed">11</p>
+
+                    <div class="result">
+                        <h2>Lagos, Nigeria</h2>
+                        <div class="top-result">
+                            <p id="temp">22&deg;C</p>
+
+                            <div>
+                                <p id="app-temp"><span class="iconify" data-inline="false" data-icon="fluent:temperature-20-filled" style="color: #ffffff; font-size: 20px;"></span>Feels like 30C</p>
+                                <p id="weather-descr"><span class="iconify" data-inline="false" data-icon="bi:cloud-fill" style="color: #ffffff; font-size: 20px;"></span>Mostly Cloudy</p>
+                            </div>
+                        </div>
+                        <div class="weather-details">
+                            <div class="weather-detail">
+                                <p class="label">Wind speed: 
+                                    <span class="value" id="wind-speed">6.17m/s</span>
+                                </p>
+                            </div>
+                            <div class="weather-detail">
+                                <p class="label">Wind Direction: 
+                                    <span class="value" id="wind-direction">6.17m/s</span>
+                                </p>
+                            </div><div class="weather-detail">
+                                <p class="label">Relative Humidity:
+                                    <span class="value" id="rel-humidity">6.17m/s</span>
+                                </p>
+                            </div><div class="weather-detail">
+                                <p class="label">Visibility:
+                                    <span class="value" id="visibility">6.17m/s</span>
+                                </p>
+                            </div><div class="weather-detail">
+                                <p class="label">UV Index: 
+                                    <span class="value" id="uv-index">6.17m/s</span>
+                                </p>
+                            </div><div class="weather-detail">
+                                <p class="label">Dew point:
+                                    <span class="value" id="dew-point">6.17m/s</span>
+                                </p>
+                            </div><div class="weather-detail">
+                                <p class="label">Precipitation: 
+                                    <span class="value" id="precipitation">6.17m/s</span>
+                                </p>
+                            </div>
+                           
+                        </div>
+
+                        <a href="#" class="map-link"><span class="iconify" data-inline="false" data-icon="entypo:map" style="color: #ffffff; font-size: 20px;"></span> See Map</a>
                     </div>
-    
-                    <div class="weather-detail">
-                        <p class="detail-title">Wind Direction</p>
-                        <p class="detail-value" id="wind-dir">11</p>
-                    </div>
-    
-                    <div class="weather-detail">
-                        <p class="detail-title">Relative Humidity</p>
-                        <p class="detail-value" id="rel-hum">11</p>
-                    </div>
-    
-                    <div class="weather-detail">
-                        <p class="detail-title">Dew Point</p>
-                        <p class="detail-value" id="dew-point">11</p>
-                    </div>
-    
-                    <div class="weather-detail">
-                        <p class="detail-title">UV Index</p>
-                        <p class="detail-value" id="uv-index">11</p>
+
+                    <div class="result">
+                        <h2>Lagos, Nigeria</h2>
+                        <div class="top-result">
+                            <p id="temp">22&deg;C</p>
+
+                            <div>
+                                <p id="app-temp"><span class="iconify" data-inline="false" data-icon="fluent:temperature-20-filled" style="color: #ffffff; font-size: 20px;"></span>Feels like 30C</p>
+                                <p id="weather-descr"><span class="iconify" data-inline="false" data-icon="bi:cloud-fill" style="color: #ffffff; font-size: 20px;"></span>Mostly Cloudy</p>
+                            </div>
+                        </div>
+                        <div class="weather-details">
+                            <div class="weather-detail">
+                                <p class="label">Wind speed: 
+                                    <span class="value" id="wind-speed">6.17m/s</span>
+                                </p>
+                            </div>
+                            <div class="weather-detail">
+                                <p class="label">Wind Direction: 
+                                    <span class="value" id="wind-direction">6.17m/s</span>
+                                </p>
+                            </div><div class="weather-detail">
+                                <p class="label">Relative Humidity:
+                                    <span class="value" id="rel-humidity">6.17m/s</span>
+                                </p>
+                            </div><div class="weather-detail">
+                                <p class="label">Visibility:
+                                    <span class="value" id="visibility">6.17m/s</span>
+                                </p>
+                            </div><div class="weather-detail">
+                                <p class="label">UV Index: 
+                                    <span class="value" id="uv-index">6.17m/s</span>
+                                </p>
+                            </div><div class="weather-detail">
+                                <p class="label">Dew point:
+                                    <span class="value" id="dew-point">6.17m/s</span>
+                                </p>
+                            </div><div class="weather-detail">
+                                <p class="label">Precipitation: 
+                                    <span class="value" id="precipitation">6.17m/s</span>
+                                </p>
+                            </div>
+                           
+                        </div>
+
+                        <a href="#" class="map-link"><span class="iconify" data-inline="false" data-icon="entypo:map" style="color: #ffffff; font-size: 20px;"></span> See Map</a>
                     </div>
                 </div>
             </div>

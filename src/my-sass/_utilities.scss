@@ -20,6 +20,8 @@
     #hamburger {
         cursor: pointer;
         z-index: 3;
+        transition: all 0.4s ease-in-out;
+
 
         .line{
             height: 2px;

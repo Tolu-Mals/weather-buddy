@@ -25,11 +25,6 @@ a {
   color: #fff;
 }
 
-
-.brand {
-  width: 10%;
-}
-
 #hero {
   min-height: 100vh;
   background: url('./img/bg.jpg') no-repeat center center/cover;
@@ -63,10 +58,6 @@ a {
   align-items: center;
   justify-content: space-between;
 
-  .brand {
-    width: 20%;
-  }
-
   nav {
    height: 100%;
    width: 18%;
@@ -97,82 +88,153 @@ a {
   }
 }
 
+//SECTION A
 #section-a {
-    background-color: #353DA2;
+  background-color: #2a3391;
+  text-align: center;
+  padding: 7rem 0;
 
-    .container {
-      padding-top: 8.6rem;
-      padding-bottom: 8.6rem;
+  #section-a-header {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 2.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .results {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+  }
+
+  .result {
+    background: linear-gradient(110.04deg, rgba(255, 255, 255, 0.3) 1.02%, rgba(255, 255, 255, 0.051) 98.39%);
+    backdrop-filter: blur(4px);
+/* Note: backdrop-filter has minimal browser support */
+    border-radius: 30px;
+    margin: 0 auto;
+    max-width: 350px;
+
+    .map-link {
+      font-size:1.4rem;
       display: flex;
-      flex-direction: column;
       align-items: center;
+      gap:8px;
+      font-weight: 800;
     }
 
-    #location,#date,#temp,#weather-info {
+    padding: 2rem;
+    margin-top: 4.8rem;
+    text-align: left;
+
+    h2 {
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .top-result, #weather-descr {
+      display: flex;
+    }
+
+    .top-result {
+      justify-content: flex-start;
+      gap: 2rem;
+      margin-top: 1.6rem;
       margin-bottom: 1.6rem;
+
+    }
+
+    .top-result > div {
+      margin: auto 0;
+      font-size: 1.6rem;
+    }
+
+    .top-result > div p {
+      margin-bottom: 4px;
+    }
+
+    #weather-descr {
+      align-items: center;
+      justify-content: center;
+
     }
 
     #temp {
-      font-size: 12rem;
+      font-size: 5rem;
       font-weight: 700;
     }
 
-    .line-v{
-      width: 1px;
-      height: 40px;
-      background: #fff;
+    div > p {
+      display: flex;
+      align-items: center;
+      gap:4px;
     }
 
-    .line-h {
-      height: 1px;
+    .weather-details {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+
+
+    .weather-detail {
+      margin-right: 1rem;
+      margin-bottom: 1.5rem;
+
+      .label {
+        font-size: 1.4rem;
+      }
+
+      .value {
+        background: linear-gradient(110.04deg, rgba(255, 255, 255, 0.48) 1.02%, rgba(255, 255, 255, 0.12) 98.39%);
+        backdrop-filter: blur(4px);
+        border-radius: 3px;
+        padding: 4px;
+      }
+    }
+
+    }
+  }
+  
+
+  #location-form {
+    input {
       width: 100%;
-      background-color: #fff;
-      margin-bottom: 3.2rem;
+      max-width: 450px;
+      padding:0 1rem;
+      height: 4.8rem;
+      margin-bottom: 1.8rem;
+      border-radius: 30px;
+      border: none;
+      font-size: 1.4rem;
     }
-    
-    #location {
-    display: flex;
-    align-items: center;
-    font-size: 3.2rem;
-    font-weight: bold;
+
+    ::placeholder {
+      color: #B1B6F2;
+      opacity: 1;
+    }
+
+    input[type=text]{
+      background: rgba(255, 255, 255, 0.29);
+      padding: 2.5rem;
+    }
+
+    #location-submit {
+      background-color: #FE507A;
+      color: #fff;
+      font-weight: 800;
+
+    }
   }
 
-  #weather-info {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 300px;
-    margin-bottom: 3.2rem;
-
-  }
+ 
 
 
-  #weather-details {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 300px;
-    row-gap: 100px;
-    text-align: center;
-  }
 
-  .weather-detail {
-    font-size: 1.8rem;
-  }
-
-
-  .weather-detail .detail-title {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 1.6rem;
-  }
-
-  .weather-detail .detail-value {
-    background: #2C3386;
-    color: #fff;
-    padding: 1rem;
-  }
+  
 }
+
 
   //MEDIA QUERIES
 
@@ -180,7 +242,6 @@ a {
 @media screen and (max-width: 768px) {
 
   #hero {
-      
     .container .content {
       width: 100%;
 
@@ -203,10 +264,6 @@ a {
       padding: 1.5rem;
       text-align: center;
       margin-bottom: 0.8rem;
-    }
-
-    .container #nav-bar .brand {
-      width: 35%;
     }
   
     .container #nav-bar.open {
@@ -246,30 +303,28 @@ a {
 
   }
 
-  #section-a #weather-details {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4rem;
-
-    .weather-detail{
-      width: 80%;
-    }
-  }
-
 }
 
 //
-@media screen and (max-width: 650px) {
-  .container #nav-bar .brand {
-    width: 40%;
+
+
+@media screen and (max-width: 375px) {
+  #section-a .results .top-result > div{
+    font-size: 1.2rem;
   }
+
+  .container #nav-bar .brand {
+    width: 50%;
+  }
+
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 425px) {
+
   .container #nav-bar .brand {
-    width: 52%;
+    width: 45%;
   }
+
 }
 
 

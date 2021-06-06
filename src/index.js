@@ -14,18 +14,115 @@ hamburger.addEventListener('click', () => {
 });
 
 
-//APIS
-const getWeatherBtn = document.getElementById('get-weather-btn');
 
-const getIP = () => {
-    fetch('https://api.bigdatacloud.net/data/client-ip')
-    .then((res)=> res.json())
-    .then((data) => console.log(data))
-    .catch((err) => {
-        console.log(err);
+//UPDATING THE UI
+const cityName = document.getElementById('name');
+const temp = document.getElementById('temp');
+const appTemp = document.getElementById('app-temp');
+const weatherDescr = document.getElementById('weather-descr');
+const windSpeed = document.getElementById('wind-speed');
+const windDir = document.getElementById('wind-direction');
+const relHumidity = document.getElementById('rel-humidity');
+const visibility = document.getElementById('visibiltiy');
+const uvIndex = document.getElementById('uv-index');
+const dewPoint = document.getElementById('dew-point');
+const precipitation = document.getElementById('precipitation');
+
+//The div where our result will be stored
+const results = document.getElementById('results');
+
+
+//WORKING WITH THE API
+const locationSubmitBtn = document.getElementById('location-submit');
+
+let locationField = document.getElementById('location-field');
+
+let weatherArray = JSON.parse(localStorage.getItem('weatherData')) || [];
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    getWeatherContent(weatherArray);
+    console.log(weatherArray);
+});
+
+
+//We get the api weather data from the local storage, and then put into our html template
+const getWeatherContent = (arr) => {
+    let mappedArr = arr.map(({data}) => {
+        return `
+        <div class="result">
+            <h2 id="name">${data[0].city_name}, ${data[0].country_code}</h2>
+            <div class="top-result">
+                <p id="temp">${data[0].temp}&deg;C</p>
+
+                <div>
+                    <p id="app-temp"><span class="iconify" data-inline="false" data-icon="fluent:temperature-20-filled" style="color: #ffffff; font-size: 20px;"></span>Feels like ${data[0].app_temp}&deg;C</p>
+                    <p id="weather-descr"><span class="iconify" data-inline="false" data-icon="bi:cloud-fill" style="color: #ffffff; font-size: 20px;"></span>${data[0].weather.description}</p>
+                </div>
+            </div>
+            <div class="weather-details">
+                <div class="weather-detail">
+                    <p class="label">Wind speed: 
+                        <span class="value" id="wind-speed">${data[0].wind_spd}m/s</span>
+                    </p>
+                </div>
+                <div class="weather-detail">
+                    <p class="label">Wind Direction: 
+                        <span class="value" id="wind-direction">${data[0].wind_dir}&deg;</span>
+                    </p>
+                </div><div class="weather-detail">
+                    <p class="label">Relative Humidity:
+                        <span class="value" id="rel-humidity">${data[0].rh}%</span>
+                    </p>
+                </div><div class="weather-detail">
+                    <p class="label">Visibility:
+                        <span class="value" id="visibility">${data[0].vis}KM</span>
+                    </p>
+                </div><div class="weather-detail">
+                    <p class="label">UV Index: 
+                        <span class="value" id="uv-index">${data[0].uv}</span>
+                    </p>
+                </div><div class="weather-detail">
+                    <p class="label">Dew point:
+                        <span class="value" id="dew-point">${data[0].dewpt}</span>
+                    </p>
+                </div>
+            </div>
+
+            <a href="#" class="map-link"><span class="iconify" data-inline="false" data-icon="entypo:map" style="color: #ffffff; font-size: 20px;"></span> See Map</a>
+        </div>`;
     });
+
+    mappedArr = mappedArr.join('');
+    results.innerHTML = mappedArr;
 };
 
-getWeatherBtn.addEventListener('click', () => {
-    getIP();
+
+const getWeatherInfo = (Location) => {
+    fetch(`https://api.weatherbit.io/v2.0/current?city=${Location}&key=bac6b91a15fa44c4887971ea442b8c83`)
+    .then((res) => res.json())
+    .then( (data) => {
+        weatherArray.unshift(data);
+        console.log(`Submitted: ${Location}`);
+        console.log(weatherArray);
+        localStorage.setItem('weatherData', JSON.stringify(weatherArray));
+
+        setTimeout(() => {
+            location.reload();
+        }, 3500);
+    })
+    .catch((error) => console.log(error));
+
+};
+
+locationSubmitBtn.addEventListener('click', (e) => {
+    let location = locationField.value;
+    e.preventDefault();
+
+    //Get weather info from api
+    getWeatherInfo(location);
+
+    locationField.value = '';
 });
+
+

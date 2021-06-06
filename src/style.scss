@@ -103,7 +103,7 @@ a {
     justify-content: center;
   }
 
-  .results {
+  #results {
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
@@ -224,6 +224,7 @@ a {
       background-color: #FE507A;
       color: #fff;
       font-weight: 800;
+      cursor: pointer;
 
     }
   }
@@ -309,7 +310,7 @@ a {
 
 
 @media screen and (max-width: 375px) {
-  #section-a .results .top-result > div{
+  #section-a #results .top-result > div{
     font-size: 1.2rem;
   }
 

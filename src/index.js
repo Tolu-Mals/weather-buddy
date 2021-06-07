@@ -16,17 +16,17 @@ hamburger.addEventListener('click', () => {
 
 
 //UPDATING THE UI
-const cityName = document.getElementById('name');
-const temp = document.getElementById('temp');
-const appTemp = document.getElementById('app-temp');
-const weatherDescr = document.getElementById('weather-descr');
-const windSpeed = document.getElementById('wind-speed');
-const windDir = document.getElementById('wind-direction');
-const relHumidity = document.getElementById('rel-humidity');
-const visibility = document.getElementById('visibiltiy');
-const uvIndex = document.getElementById('uv-index');
-const dewPoint = document.getElementById('dew-point');
-const precipitation = document.getElementById('precipitation');
+// const cityName = document.getElementById('name');
+// const temp = document.getElementById('temp');
+// const appTemp = document.getElementById('app-temp');
+// const weatherDescr = document.getElementById('weather-descr');
+// const windSpeed = document.getElementById('wind-speed');
+// const windDir = document.getElementById('wind-direction');
+// const relHumidity = document.getElementById('rel-humidity');
+// const visibility = document.getElementById('visibiltiy');
+// const uvIndex = document.getElementById('uv-index');
+// const dewPoint = document.getElementById('dew-point');
+// const precipitation = document.getElementById('precipitation');
 
 //The div where our result will be stored
 const results = document.getElementById('results');
@@ -38,6 +38,9 @@ const locationSubmitBtn = document.getElementById('location-submit');
 let locationField = document.getElementById('location-field');
 
 let weatherArray = JSON.parse(localStorage.getItem('weatherData')) || [];
+
+// console.log(map);
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -51,7 +54,7 @@ const getWeatherContent = (arr) => {
     let mappedArr = arr.map(({data}) => {
         return `
         <div class="result">
-            <h2 id="name">${data[0].city_name}, ${data[0].country_code}</h2>
+            <h2 id="name"><span class='location-name'>${data[0].city_name}</span>, ${data[0].country_code}</h2>
             <div class="top-result">
                 <p id="temp">${data[0].temp}&deg;C</p>
 
@@ -89,7 +92,7 @@ const getWeatherContent = (arr) => {
                 </div>
             </div>
 
-            <a href="#" class="map-link"><span class="iconify" data-inline="false" data-icon="entypo:map" style="color: #ffffff; font-size: 20px;"></span> See Map</a>
+            <a class="map-link"><span class="iconify" data-inline="false" data-icon="entypo:map" style="color: #ffffff; font-size: 20px;"></span> See Map</a>
         </div>`;
     });
 
@@ -113,6 +116,8 @@ const getWeatherInfo = (Location) => {
     })
     .catch((error) => console.log(error));
 
+    g_location.push(Location);
+
 };
 
 locationSubmitBtn.addEventListener('click', (e) => {
@@ -123,6 +128,27 @@ locationSubmitBtn.addEventListener('click', (e) => {
     getWeatherInfo(location);
 
     locationField.value = '';
+});
+
+
+
+document.addEventListener('DOMContentLoaded', (map) => {
+    let locationMap = document.getElementById('location-map');
+    let mapFrame = document.getElementById('map');
+    let locations = document.querySelectorAll('.location-name');
+    let mapLinks = document.querySelectorAll('.map-link');
+    let closeMap = document.getElementById('close-map');
+
+    mapLinks.forEach((link, index) => {
+        link.addEventListener('click', () =>{
+            locationMap.style.display = 'block';
+            mapFrame.src = `https://www.google.com/maps/embed/v1/place?key=AIzaSyB9fM_ZmHlOb_Os_1_bWQ3I7iyoKz27tx4&q=${locations[index].innerText}`;
+        })
+    });
+
+    closeMap.onclick = function (){
+        locationMap.style.display = 'none';    
+    };
 });
 
 

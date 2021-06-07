@@ -19,6 +19,7 @@ $secondary: #2C3386;
 
 body {
   color: #fff;
+  background: $secondary;
 }
 
 a {
@@ -123,6 +124,7 @@ a {
       align-items: center;
       gap:8px;
       font-weight: 800;
+      cursor: pointer;
     }
 
     padding: 2rem;
@@ -325,9 +327,32 @@ a {
   .container #nav-bar .brand {
     width: 45%;
   }
-
 }
 
+//Map styles
 
+  #location-map {
+    display: none;
+    background-color: #fff;
+    color: $secondary;
+    font-size: 1.6rem;
+    font-weight: 800;
+    width: 80%;
+    position: fixed;
+    top: 25%;
+    left: 10%;
+    box-shadow: 0px 4px 36px 16px rgba(0, 0, 0, 0.42);
 
+  
+    div {
+      display: flex;
+      padding: 1.5rem;
+      align-items: center;
+      justify-content: space-between;
+    }
 
+    div a {
+      color: $secondary;
+    }
+  }
+  

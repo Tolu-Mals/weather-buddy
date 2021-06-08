@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', (map) => {
     mapLinks.forEach((link, index) => {
         link.addEventListener('click', () =>{
             locationMap.style.display = 'block';
-            mapFrame.src = `https://www.google.com/maps/embed/v1/place?key=AIzaSyB9fM_ZmHlOb_Os_1_bWQ3I7iyoKz27tx4&q=${locations[index].innerText}`;
+            mapFrame.src = `https://www.google.com/maps/embed/v1/place?key=AIzaSyCgCkXxQPZQ64c1qsUeD2HWwjrwZnVNR5E&q=${locations[index].innerText}`;
         })
     });
 

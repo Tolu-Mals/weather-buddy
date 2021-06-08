@@ -354,6 +354,18 @@ a {
 
     div a {
       color: $secondary;
+      line-height: 1.6rem;
     }
   }
+
+  //Map media queries
+@media screen and (min-width: 768px){
+  #location-map {
+    height: 400px;
+
+    #map {
+      height: 350px;
+    }
+  }
+}
   

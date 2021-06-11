@@ -14,20 +14,6 @@ hamburger.addEventListener('click', () => {
 });
 
 
-
-//UPDATING THE UI
-// const cityName = document.getElementById('name');
-// const temp = document.getElementById('temp');
-// const appTemp = document.getElementById('app-temp');
-// const weatherDescr = document.getElementById('weather-descr');
-// const windSpeed = document.getElementById('wind-speed');
-// const windDir = document.getElementById('wind-direction');
-// const relHumidity = document.getElementById('rel-humidity');
-// const visibility = document.getElementById('visibiltiy');
-// const uvIndex = document.getElementById('uv-index');
-// const dewPoint = document.getElementById('dew-point');
-// const precipitation = document.getElementById('precipitation');
-
 //The div where our result will be stored
 const results = document.getElementById('results');
 
@@ -116,8 +102,6 @@ const getWeatherInfo = (Location) => {
     })
     .catch((error) => console.log(error));
 
-    g_location.push(Location);
-
 };
 
 locationSubmitBtn.addEventListener('click', (e) => {
@@ -151,4 +135,5 @@ document.addEventListener('DOMContentLoaded', (map) => {
     };
 });
 
-
+//Service Worker Set Up
+import './main.js';

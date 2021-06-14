@@ -1,4 +1,9 @@
 import './style.scss';
+import logoSrc from './img/brand.svg';
+
+// //ADD LOGO
+// const logoElement = document.querySelector('#logo-element');
+// logoElement.src = logoSrc;
 
 //NAVBAR
 const nav = document.getElementById('nav');
@@ -131,9 +136,6 @@ document.addEventListener('DOMContentLoaded', (map) => {
     });
 
     closeMap.onclick = function (){
-        locationMap.style.display = 'none';    
+        locationMap.style.display = 'none';
     };
 });
-
-//Service Worker Set Up
-import './main.js';

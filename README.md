@@ -1,4 +1,4 @@
-# weather-buddy
+# Weather-buddy Progressive Web App
 
 You can check it out here: http://tolulopemalomo.me/weather-buddy
 

@@ -115,6 +115,9 @@ a {
     border-radius: 30px;
     margin: 0 auto;
     max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     .map-link {
       font-size:1.4rem;
@@ -123,6 +126,7 @@ a {
       gap:8px;
       font-weight: 800;
       cursor: pointer;
+      margin-top: auto;
     }
 
     padding: 2rem;

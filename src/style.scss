@@ -215,9 +215,17 @@ a {
       opacity: 1;
     }
 
-    input[type=text]{
+    #location-field{
       background: rgba(255, 255, 255, 0.29);
+      box-shadow: rgba(255, 255, 255, 0.29);
       padding: 2.5rem;
+      transition: all 0.3s;
+    }
+    
+
+    #location-field:focus {
+      outline: none;
+      box-shadow: rgb(255, 255, 255) 0px 0px 0px 1px,
     }
 
     #location-submit {

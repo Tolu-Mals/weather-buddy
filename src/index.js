@@ -6,6 +6,8 @@ const navBar = document.getElementById('nav-bar');
 const container = document.getElementById('container');
 const hamburger = document.getElementById('hamburger');
 
+const loader = document.getElementById('loader');
+
 hamburger.addEventListener('click', () => {
     nav.classList.toggle('open');
     navBar.classList.toggle('open');
@@ -27,8 +29,8 @@ let weatherArray = JSON.parse(localStorage.getItem('weatherData')) || [];
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    getWeatherContent(weatherArray);
     console.log(weatherArray);
+    getWeatherContent(weatherArray);
 });
 
 
@@ -37,40 +39,40 @@ const getWeatherContent = (arr) => {
     let mappedArr = arr.map(({data}) => {
         return `
         <div class="result">
-            <h2 id="name"><span class='location-name'>${data[0].city_name}</span>, ${data[0].country_code}</h2>
+            <h2 id="name"><span class='location-name'>${data?.at(0)?.city_name}</span>, ${data?.at(0)?.country_code}</h2>
             <div class="top-result">
-                <p id="temp">${data[0].temp}&deg;C</p>
+                <p id="temp">${data?.at(0)?.temp}&deg;C</p>
 
                 <div>
-                    <p id="app-temp"><span class="iconify" data-inline="false" data-icon="fluent:temperature-20-filled" style="color: #ffffff; font-size: 20px;"></span>Feels like ${data[0].app_temp}&deg;C</p>
-                    <p id="weather-descr"><span class="iconify" data-inline="false" data-icon="bi:cloud-fill" style="color: #ffffff; font-size: 20px;"></span>${data[0].weather.description}</p>
+                    <p id="app-temp"><span class="iconify" data-inline="false" data-icon="fluent:temperature-20-filled" style="color: #ffffff; font-size: 20px;"></span>Feels like ${data?.at(0)?.app_temp}&deg;C</p>
+                    <p id="weather-descr"><span class="iconify" data-inline="false" data-icon="bi:cloud-fill" style="color: #ffffff; font-size: 20px;"></span>${data?.at(0)?.weather.description}</p>
                 </div>
             </div>
             <div class="weather-details">
                 <div class="weather-detail">
                     <p class="label">Wind speed: 
-                        <span class="value" id="wind-speed">${data[0].wind_spd}m/s</span>
+                        <span class="value" id="wind-speed">${data?.at(0).wind_spd}m/s</span>
                     </p>
                 </div>
                 <div class="weather-detail">
                     <p class="label">Wind Direction: 
-                        <span class="value" id="wind-direction">${data[0].wind_dir}&deg;</span>
+                        <span class="value" id="wind-direction">${data?.at(0).wind_dir}&deg;</span>
                     </p>
                 </div><div class="weather-detail">
                     <p class="label">Relative Humidity:
-                        <span class="value" id="rel-humidity">${data[0].rh}%</span>
+                        <span class="value" id="rel-humidity">${data?.at(0)?.rh}%</span>
                     </p>
                 </div><div class="weather-detail">
                     <p class="label">Visibility:
-                        <span class="value" id="visibility">${data[0].vis}KM</span>
+                        <span class="value" id="visibility">${data?.at(0)?.vis}KM</span>
                     </p>
                 </div><div class="weather-detail">
                     <p class="label">UV Index: 
-                        <span class="value" id="uv-index">${data[0].uv}</span>
+                        <span class="value" id="uv-index">${data?.at(0)?.uv}</span>
                     </p>
                 </div><div class="weather-detail">
                     <p class="label">Dew point:
-                        <span class="value" id="dew-point">${data[0].dewpt}</span>
+                        <span class="value" id="dew-point">${data?.at(0)?.dewpt}</span>
                     </p>
                 </div>
             </div>
@@ -85,6 +87,8 @@ const getWeatherContent = (arr) => {
 
 
 const getWeatherInfo = (Location) => {
+    loader.classList.toggle('hide');
+    
     fetch(`https://api.weatherbit.io/v2.0/current?city=${Location}&key=bac6b91a15fa44c4887971ea442b8c83`)
     .then((res) => res.json())
     .then( (data) => {

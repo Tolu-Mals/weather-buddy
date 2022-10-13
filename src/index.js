@@ -1,9 +1,4 @@
 import './style.scss';
-import logoSrc from './img/brand.svg';
-
-// //ADD LOGO
-// const logoElement = document.querySelector('#logo-element');
-// logoElement.src = logoSrc;
 
 //NAVBAR
 const nav = document.getElementById('nav');
@@ -29,9 +24,6 @@ const locationSubmitBtn = document.getElementById('location-submit');
 let locationField = document.getElementById('location-field');
 
 let weatherArray = JSON.parse(localStorage.getItem('weatherData')) || [];
-
-// console.log(map);
-
 
 
 document.addEventListener('DOMContentLoaded', () => {

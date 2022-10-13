@@ -1,38 +1,32 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const htmlLoader = require('html-loader');
-const WorkboxPlugin = require('workbox-webpack-plugin');
-const path = require("path");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: {
-        index: './src/index.js',
-        main: './src/main.js'
-    },
-    module: {
-      rules: [
-        {
-          test: /\.s[ac]ss$/i,
-          use: ['style-loader',"css-loader","sass-loader"],
-        },
-        {
-          test: /\.(png|svg|jpg|jpeg|gif)$/i,
-          type: 'asset/resource',
-        },
-        {
-          test: /\.html$/i,
-          loader: 'html-loader',
-        }
-      ],
-  },
+  entry: './src/index.js',
   plugins: [
     new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, './src/index.html')
-    }),
-     new WorkboxPlugin.GenerateSW({
-       // these options encourage the ServiceWorkers to get in there fast
-       // and not allow any straggling "old" SWs to hang around
-       clientsClaim: true,
-       skipWaiting: true,
-     }),
+      template: 'src/index.html',
+    })
   ],
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true,
+  },
+  module: {
+    rules: [
+      {
+        test: /\.s[ac]ss$/i,
+        use: ["style-loader", "css-loader", "sass-loader"]
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource'
+      },
+      {
+        test: /\.html$/,
+        loader: 'html-loader'
+      }
+    ]
+  }
 }

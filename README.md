@@ -1,9 +1,7 @@
-# Weather-buddy Progressive Web App
+# ⛅️ Weather-buddy Web App
 
-You can check it out here: https://tolu-mals.github.io/weather-buddy/
+A simple weather app that shows the current weather information of any location you enter.
 
-A Progressive Web App that shows you the current weather information. It was built with Html, Scss, Vanilla Javascript and Webpack.
+Built with HTML,CSS, JavaScript, bundled with Webpack.
 
-https://github.com/Tolu-Mals/weather-buddy/issues/1#issue-1021635732
-
-
+![Screenshot](https://user-images.githubusercontent.com/30352484/136649177-5b05f670-70b6-4f4d-8c73-b7195ab37944.png)

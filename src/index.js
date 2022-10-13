@@ -32,6 +32,14 @@ let weatherArray = JSON.parse(localStorage.getItem('weatherData')) || [];
 document.addEventListener('DOMContentLoaded', () => {
     console.log(weatherArray);
     getWeatherContent(weatherArray);
+
+    const hasVisitedPage = localStorage.getItem('hasVisitedPage');
+
+    if(hasVisitedPage && weatherArray.length > 0){
+        results.scrollIntoView();
+    } else {
+        localStorage.setItem('hasVisitedPage', 'true');
+    }
 });
 
 

@@ -351,37 +351,42 @@ a {
     font-size: 1.6rem;
     font-weight: 800;
     width: 80%;
-    height: 300px;
+    height: 500px;
     position: fixed;
-    top: 15%;
+    top: 20%;
     left: 10%;
     box-shadow: 0px 4px 36px 16px rgba(0, 0, 0, 0.42);
+  }
 
-  
-    div {
-      display: flex;
-      padding: 1.5rem;
-      align-items: center;
-      justify-content: space-between;
+  #map-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+
+    button {
+      font-weight: 700;
+      font-size: 16px;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
     }
 
-    div a {
-      color: $secondary;
-      line-height: 1.6rem;
+    #close-button-icon {
+      width: 24px;
     }
   }
 
-  //Map media queries
-@media screen and (min-width: 768px){
-  #location-map {
-    height: 400px;
+  #map {
+    display: block;
+    height: 100%;
+  }
 
-    #map {
-      height: 350px;
+  @media screen and (max-width: 768px){
+    #location-map {
+      height: 400px;
     }
   }
-}
-  
 
 //Loader styles
 #loader {

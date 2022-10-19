@@ -1,5 +1,8 @@
 import './style.scss';
 
+var mapboxgl = require('mapbox-gl');
+mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN;
+
 //NAVBAR
 const nav = document.getElementById('nav');
 const navBar = document.getElementById('nav-bar');
@@ -30,7 +33,6 @@ let weatherArray = JSON.parse(localStorage.getItem('weatherData')) || [];
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log(weatherArray);
     getWeatherContent(weatherArray);
 
     const hasVisitedPage = localStorage.getItem('hasVisitedPage');
@@ -49,7 +51,7 @@ const getWeatherContent = (arr) => {
         return `
         <div class="result">
             <div>
-                <h2 id="name"><span class='location-name'>${data?.at(0)?.city_name}</span>, ${data?.at(0)?.country_code}</h2>
+                <h2 id="name" class="location"><span class='location-name'>${data?.at(0)?.city_name}</span>, ${data?.at(0)?.country_code}</h2>
                 <div class="top-result">
                     <p id="temp">${data?.at(0)?.temp}&deg;C</p>
 
@@ -131,19 +133,34 @@ locationSubmitBtn.addEventListener('click', (e) => {
 
 document.addEventListener('DOMContentLoaded', (map) => {
     let locationMap = document.getElementById('location-map');
-    let mapFrame = document.getElementById('map');
-    let locations = document.querySelectorAll('.location-name');
+
     let mapLinks = document.querySelectorAll('.map-link');
-    let closeMap = document.getElementById('close-map');
+    const closeButton = document.querySelector('#close-button');
+
+    closeButton.onclick = () => {
+        locationMap.style.display = 'none';
+    }
 
     mapLinks.forEach((link, index) => {
-        link.addEventListener('click', () =>{
+        const locations = document.querySelectorAll('.location');
+
+        link.addEventListener('click', async () =>{
+            const location = locations[index].innerText;
+            const response = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${location}.json?access_token=${process.env.MAPBOX_ACCESS_TOKEN}`)
+            const data = await response.json();
+
+            const { features } = data;
+            const { center } = features.at(0);
+
             locationMap.style.display = 'block';
-            mapFrame.src = `https://www.google.com/maps/embed/v1/place?key=AIzaSyCgCkXxQPZQ64c1qsUeD2HWwjrwZnVNR5E&q=${locations[index].innerText}`;
+
+            const map = new mapboxgl.Map({
+                container: 'map',
+                center: center,
+                style: 'mapbox://styles/mapbox/streets-v11',
+                zoom: 12,
+            });
         })
     });
 
-    closeMap.onclick = function (){
-        locationMap.style.display = 'none';
-    };
 });

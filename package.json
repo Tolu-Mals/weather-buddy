@@ -21,6 +21,7 @@
   "homepage": "https://github.com/Tolu-Mals/weather-buddy#readme",
   "devDependencies": {
     "css-loader": "^6.7.1",
+    "dotenv-webpack": "^8.0.1",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.0",
     "sass": "^1.55.0",
@@ -29,5 +30,8 @@
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.11.1"
+  },
+  "dependencies": {
+    "mapbox-gl": "^2.10.0"
   }
 }

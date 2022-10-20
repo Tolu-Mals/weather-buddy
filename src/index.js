@@ -1,55 +1,39 @@
 import './style.scss';
-import renderWeatherData from './renderWeatherData';
-import getWeatherInfo from './getWeatherInfo';
 
 const mapboxgl = require('mapbox-gl');
 mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN;
 
-//NAVBAR
-const nav = document.getElementById('nav');
-const navBar = document.getElementById('nav-bar');
-const container = document.getElementById('container');
-const hamburger = document.getElementById('hamburger');
+document.addEventListener('DOMContentLoaded', async() => {
+    //Check if there's any weather data stored in localStorage
+    let weatherArray = JSON.parse(localStorage.getItem('weatherData')) || [];
 
-//The div where our result will be stored
-const results = document.getElementById('results');
+    //navbar related selectors
+    const nav = document.getElementById('nav');
+    const navBar = document.getElementById('nav-bar');
+    const container = document.getElementById('container');
+    const hamburger = document.getElementById('hamburger');
 
-//Form
-const locationSubmitBtn = document.getElementById('location-submit');
-let locationField = document.getElementById('location-field');
+    //The div where our result will be stored
+    const results = document.getElementById('results');
 
-hamburger.addEventListener('click', () => {
-    nav.classList.toggle('open');
-    navBar.classList.toggle('open');
-    container.classList.toggle('open');
-    hamburger.classList.toggle('open');
-});
+    //Form related selectors
+    const locationSubmitBtn = document.getElementById('location-submit');
+    let locationField = document.getElementById('location-field');
 
-let weatherArray = JSON.parse(localStorage.getItem('weatherData')) || [];
-
-document.addEventListener('DOMContentLoaded', () => {
+    //Render the weather data on the app
+    const { default: renderWeatherData} = await import('./renderWeatherData');
     renderWeatherData(weatherArray);
 
+    //If the user is not a first time user, scroll to the weather info
     const hasVisitedPage = localStorage.getItem('hasVisitedPage');
-
     if(hasVisitedPage && weatherArray.length > 0){
         results.scrollIntoView();
     } else {
+        //Update the data that monitors when a user is new
         localStorage.setItem('hasVisitedPage', 'true');
     }
-});
 
-locationSubmitBtn.addEventListener('click', (e) => {
-    let location = locationField.value;
-    e.preventDefault();
-
-    //Get weather info from api
-    getWeatherInfo(location, weatherArray);
-
-    locationField.value = '';
-});
-
-document.addEventListener('DOMContentLoaded', (map) => {
+    //Map related selectors
     let locationMap = document.getElementById('location-map');
 
     let mapLinks = document.querySelectorAll('.map-link');
@@ -61,7 +45,7 @@ document.addEventListener('DOMContentLoaded', (map) => {
 
     mapLinks.forEach((link, index) => {
         const locations = document.querySelectorAll('.location');
-
+        //Display the map when we click the "See map" links ie .map-link
         link.addEventListener('click', async () =>{
             const location = locations[index].innerText;
             const response = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${location}.json?access_token=${process.env.MAPBOX_ACCESS_TOKEN}`)
@@ -81,4 +65,26 @@ document.addEventListener('DOMContentLoaded', (map) => {
         })
     });
 
+    //Toggle the mobile navbar when clicked
+    hamburger.addEventListener('click', () => {
+        nav.classList.toggle('open');
+        navBar.classList.toggle('open');
+        container.classList.toggle('open');
+        hamburger.classList.toggle('open');
+    });
+
+    //Get weather data for new location when you submit
+    locationSubmitBtn.addEventListener('click', async (e) => {
+        let location = locationField.value;
+        e.preventDefault();
+
+        //If no location was entered exit the function
+        if(!location) return;
+
+        const { default: getWeatherInfo } = await import('./getWeatherInfo');
+        //Get weather info from api
+        getWeatherInfo(location, weatherArray);
+
+        locationField.value = '';
+    });
 });

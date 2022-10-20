@@ -420,3 +420,10 @@ a {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+
+//to eliminate flash of unstyled content
+html {
+  visibility: visible;
+  opacity: 1;
+}

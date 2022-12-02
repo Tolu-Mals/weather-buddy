@@ -1,3 +1,5 @@
+const API_KEY = process.env.WEATHERBIT_API_KEY;
+
 const getWeatherInfo = (Location, weatherArray) => {
   const loader = document.getElementById('loader');
   const body = document.querySelector('body');
@@ -10,7 +12,7 @@ const getWeatherInfo = (Location, weatherArray) => {
   .then( (data) => {
       weatherArray.unshift(data);
       localStorage.setItem('weatherData', JSON.stringify(weatherArray));
-
+      
       setTimeout(() => {
           location.reload();
       }, 3500);
